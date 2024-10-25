@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #0066cc;
+            --accent-color: #E74C3C;
+            --text-color: #2C3E50;
+            --light-bg: #F8F9FA;
+            --success-color: #2ecc71;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-top: 1.5rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .card-grid {
+            /* display: grid; */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        .service-highlight {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .monthly-service {
+            border: 2px solid var(--success-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .price-highlight {
+            font-size: 1.4em;
+            color: var(--success-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: rgb(247, 227, 51);
+            color: black;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 1rem;
+        }
+
+        .price-tag {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .payback-section {
+            margin-top: 2rem;
+            /* padding: 1.5rem; */
+            background-color: #E8F6F3;
+            border-radius: 8px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.10.3/Recharts.js"></script>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+
+<body>
+    <h1>Proposta Comercial - MeddiFlux Systems</h1>
+
+    <div class="section">
+        <h2>Resumo Executivo</h2>
+        <p>Prezado cliente,</p>
+        <p>Apresentamos uma proposta de otimização para a infraestrutura da MeddiFlux Systems, visando melhorar a
+            eficiência, segurança e reduzir custos. Nossa abordagem é dividida em duas fases, permitindo uma transição
+            suave e controlada, incluindo uma moderna pipeline de CI/CD para automatizar e asegurar o processo de
+            desenvolvimento.</p>
+    </div>
+
+    <div class="section">
+        <h2>Pipeline de CI/CD Proposta</h2>
+        <div class="highlight">
+            <h3>Automação do Fluxo de Desenvolvimento</h3>
+            <p>Implementaremos uma pipeline automatizada usando AWS CodePipeline integrado com GitHub, CodeBuild e
+                Elastic Beanstalk, eliminando processos manuais e aumentando a segurança:</p>
+            <ul>
+                </li>
+                <li><strong>Build (CodeBuild):</strong>
+                    <ul>
+                        <li>Execução automática de testes unitários</li>
+                        <li>Análise de segurança do código</li>
+                        <li>Verificação de qualidade</li>
+                        <li>Geração de artefatos para deploy</li>
+                    </ul>
+                </li>
+                <li><strong>Deploy (Elastic Beanstalk):</strong>
+                    <ul>
+                        <li>Deploy automático para ambiente de homologação após aprovação dos testes</li>
+                        <li>Deploy para produção após aprovação manual do QA e CTO</li>
+                        <li>Execução automática de migrations do banco de dados</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Benefícios da Nova Pipeline</h3>
+            <ul>
+                <li>Eliminação de deploys manuais e necessidade e túnel SSH através de scripts</li>
+                <li>Processo padronizado e auditável</li>
+                <li>Execução automática de testes de segurança</li>
+                <li>Redução do tempo de deploy aumentando a produtividade</li>
+                <li>Histórico completo de todas as alterações e deploys</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Comparativo de Custos/Economia e Projeção para 2025</h2>
+        <div class="chart-container">
+            <canvas id="costChart"></canvas>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Situação Atual</th>
+                    <th>Abordagem 1 (Fase Inicial)</th>
+                    <th>Abordagem 2 (Completa)</th>
+                    <th>Estimativa 2025 (Abordagem 2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Custo Mensal</td>
+                    <td>$1,316.08</td>
+                    <td>$1,125.20</td>
+                    <td>$486.00</td>
+                    <td>$490.86</td>
+                </tr>
+                <tr>
+                    <td>Custo Anual</td>
+                    <td>$15,792.96</td>
+                    <td>$13,502.40</td>
+                    <td>$5,832.00</td>
+                    <td>$5,890.32</td>
+                </tr>
+                <tr>
+                    <td>Economia Anual</td>
+                    <td>-</td>
+                    <td>$2,290.56 (14.50%)</td>
+                    <td>$9,960.96 (63.07%)</td>
+                    <td>$9,902.64 (62.70%)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Detalhes da Proposta</h2>
+        <div class="card">
+            <h3>Fase 1: Otimização Inicial</h3>
+            <ul>
+                <li>Implementação da pipeline CI/CD com AWS CodePipeline</li>
+                <li>Adição de instâncias Spot para redução de custos</li>
+                <li>Adição de Bastion Host nos dois ambientes para maior segurança</li>
+                <li>Ambiente de Homologação trabalhando das 08:00 às 18:00</li>
+                <li>Implementação de WAF</li>
+                <li>Integração do AWS Secrets Manager</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <h2>Investimento e Retorno</h2>
+            <h3>Abordagem 1</h3>
+            <div class="price-tag">R$ 35.000,00</div>
+            <p>Implementação da fase inicial com otimizações básicas e pipeline CI/CD</p>
+        </div>
+        
+        <div class="card">
+            <h3>Abordagem 1 + 2 (Completa)</h3>
+            <div class="price-tag">R$ 50.000,00</div>
+            <p>Implementação completa com todas as otimizações e benefícios</p>
+            <div class="payback-section">
+                <h4>Análise de Payback</h4>
+                <p>Com economia anual de $9,960.96 (R$ 49.804,80 considerando cotação de R$ 5,00)</p>
+                <p><strong>Tempo de retorno estimado: 1 ano</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Benefícios</h2>
+        <div class="highlight">
+            <h3>Economia a Longo Prazo</h3>
+            <p>A implementação completa da proposta resultará em uma economia anual estimada de $9,960.96, representando
+                uma redução de 63.07% nos custos de infraestrutura.</p>
+        </div>
+
+        <div class="highlight">
+            <h3>Segurança Aprimorada</h3>
+            <ul>
+                <li>Pipeline CI/CD com verificações de segurança automatizadas</li>
+                <li>Implementação de Bastion Host para acesso seguro</li>
+                <li>Adição de WAF para proteção contra ataques web</li>
+                <li>Utilização do AWS Secrets Manager para gerenciamento seguro de credenciais</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <h3>Eficiência Operacional</h3>
+            <ul>
+                <li>Automação completa do processo de deploy</li>
+                <li>Otimização de custos com planos de economia</li>
+                <li>Redução significativa no tempo de deploy e teste</li>
+                <li>Eliminação de processos manuais propensos a erros</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="monthly-service">
+        <h3>Serviço de Sustentação</h3>
+        <div class="service-highlight">16 horas mensais</div>
+        <div class="price-highlight">R$ 3.200,00 / mês</div>
+        <p>Nosso serviço de sustentação inclui:</p>
+        <ul>
+            <li>Manutenção contínua do ambiente para garantir seu funcionamento ideal</li>
+            <li>Implementação de pequenas melhorias e ajustes</li>
+            <li>Atualizações técnicas para manter a solução alinhada com as necessidades do negócio</li>
+            <li>Monitoramento e otimização contínua do ambiente</li>
+            <li>Suporte técnico especializado</li>
+        </ul>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('costChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Situação Atual', 'Abordagem 1', 'Abordagem 2', 'Estimativa 2025'],
+                datasets: [{
+                    label: 'Custo Anual (USD)',
+                    data: [15792.96, 13502.40, 5832.00, 5890.32],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Custo Anual (USD)'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Comparação de Custos Anuais e Projeção para 2025'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
